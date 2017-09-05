@@ -1,0 +1,292 @@
+/* Made by Dmitry Glinskiy, contact me at glinskiy.net */
+body {
+  background-color: #f1f1f1;
+ -webkit-print-color-adjust:exact;
+}
+
+h1 {
+  padding: 0.5em 0;
+}
+
+.container {
+  min-height: 100vh;
+  background-color: #ffffff;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.logo {
+  padding: 12px 0 0;
+}
+
+.header {
+  text-align: center;
+  padding: 20px 10px 0 160px;
+  border-bottom: 1px solid #333;
+  margin: 0 15px 15px;
+}
+.header p {
+  margin: 0;
+}
+.logo-rp {
+  float: left;
+  width: 150px;
+  margin-left: -160px;
+}
+.addresses {
+  display: inline-block;
+  font-size: 85%;
+  line-height: 125%;
+  padding-top: 5px;
+  padding-bottom: 15px;
+}
+
+.gender-row {
+  padding: 6px 0 0 2px;
+}
+
+.debug-output span {
+  font-weight: bold;
+}
+
+form {
+  margin: 24px 0;
+}
+
+/* Main Table */
+.maintable-col {
+
+}
+
+.table {
+  margin-bottom: 0;
+}
+.main-table th,
+.main-table td {
+  vertical-align: middle;
+  border-color: #fff;
+}
+
+.main-table td {
+}
+
+.subtest-group-1 td, .subtest-group-1 th { background-color: #fff2f2; }
+.subtest-group-2 td, .subtest-group-2 th { background-color: #fff9f2; }
+.subtest-group-3 td, .subtest-group-3 th { background-color: #f2f5ff; }
+.subtest-group-4 td, .subtest-group-4 th { background-color: #f2fff3; }
+
+.unbold {
+  font-weight: normal!important;
+}
+
+.main-table td .form-control,
+.scale-field,
+.summ-field {
+  display: inline-block;
+  width: 60px;
+  text-align: center;
+  padding: 5px 10px;
+}
+.scale-field {
+  background-color: rgba(255,255,255,0.85);
+  border-radius: 5px;
+  font-weight: bold;
+}
+.summ-field {
+}
+
+.total-scale {
+  background-color: rgba(240,240,240,0.85);
+  font-weight: bold;
+}
+
+.row-divider {
+  margin: 30px 0;
+}
+
+/* Graphs */
+.graph-table {
+  width: 100%;
+  margin: 16px 0 0;
+}
+
+.graph-table td {
+  padding: 0 10px;
+  line-height: 34px;
+  min-height: 34px;
+  border-top: none;
+}
+.cell-normality {
+  float: left;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 90%;
+  line-height: 14px;
+  padding: 13px 4px;
+}
+.cell-very-subnormal { width: 14.285%; padding: 6px 4px; background-color: #eee;}
+.cell-subnormal { width: 14.285%; background-color: #ccc; }
+.cell-normal { width: 28.57%; background-color: #aaa; }
+.cell-supnormal { width: 14.285%; background-color: #ccc; }
+.cell-very-supnormal { width: 28.57%; background-color: #eee; }
+
+.graph-caption {
+  width: 30%;
+}
+
+.graph-ruler {
+}
+
+.graph-bar-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.graph-bar {
+  position: relative;
+  width: 100%;
+  height: 32px;
+  background: transparent url('../images/ruler.svg') no-repeat 50% 50% / 100%;
+  overflow: hidden;
+}
+
+.graph-value {
+  position: absolute;
+  height: 20px;
+  line-height: 20px;
+  top: 6px;
+  background-color: rgba(133,190,255,1);
+  color: #000;
+  text-align: center;
+  font-size: 90%;
+}
+
+.graph-lines {
+  position: absolute;
+  top: -34px;
+  min-width: 2.45%;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+.graph-20 { left: -1.2%; }
+.graph-30 { left: 13.08%; }
+.graph-40 { left: 27.4%; }
+.graph-50 { left: 41.7%; }
+.graph-60 { left: 56.04%; }
+.graph-70 { left: 70.42%; }
+.graph-80 { left: 84.7%; }
+.graph-90 { left: 98.8%; }
+
+
+/* Print styles */
+@media print {
+  body { background-color: #fff; }
+
+  .container {
+    min-height: auto;
+    width: 100%;
+    max-width:100%;
+    border: none;
+    padding: 0 25px;
+  }
+  .col, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10 {
+    padding: 0;
+  }
+  .header {
+    padding: 20px 10px 0 150px;
+    margin: 0 0 15px;
+  }
+  .logo-rp {
+    padding-top: 10px;
+    margin-left: -150px;
+  }
+  .debug-output { display: none; }
+
+  input, textarea, select, option, label, .form-control, .col-form-label,
+  p, th, td {
+    font-size:12px;
+  }
+  .form-group {
+    margin: 0;
+  }
+  select, option, .custom-select {
+    border: 0px none;
+    padding: 0;
+    background: none;
+    height: 20px;
+    line-height: 20px;
+    vertical-align: top;
+  }
+  .form-control {
+    border: 0px none;
+    padding: 0;
+    background: none;
+  }
+  .form-group .form-control {
+    padding: 2px 0 0;
+  }
+  .col-form-label {
+    padding: 0 6px 0 0;
+  }
+  .form-check {
+    margin-bottom: 0;
+  }
+  .form-check-inline .form-check-label {
+    vertical-align: top;
+  }
+  .gender-row {
+    padding: 0;
+  }
+  .form-check-input {
+    float: left;
+  }
+  .cell-normality {
+    height: 36px;
+    line-height: 12px;
+  }
+  .cell-very-subnormal { }
+  .cell-subnormal { padding: 6px 4px; }
+  .cell-normal {  }
+  .cell-supnormal { padding: 6px 4px; }
+  .cell-very-supnormal {  }
+
+  .main-table th, .main-table td {
+    font-size: 11px;
+    padding: 0;
+  }
+  .main-table thead th {
+    padding: 5px 0;
+  }
+  .clr {
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
+  }
+  .subtest-group-1 .clr { background-color: #fff2f2; }
+  .subtest-group-2 .clr { background-color: #fff9f2; }
+  .subtest-group-3 .clr { background-color: #f2f5ff; }
+  .subtest-group-4 .clr { background-color: #f2fff3; }
+  th .clr, .thpad {
+    padding-left: 8px;
+  }
+  .main-table td .form-control,
+  .scale-field,
+  .summ-field {
+    width: 40px;
+    height: 24px;
+    line-height: 24px;
+    margin: 3px 0;
+    padding: 0;
+  }
+
+  .graph-table th, .graph-table td {
+    font-size: 11px;
+    padding: 0!important;
+  }
+}
+/* Made by Dmitry Glinskiy, contact me at glinskiy.net */

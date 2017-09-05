@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Made by Dmitry Glinskiy, contact me at glinskiy.net -->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>BOT2</title>
+  </head>
+  <body>
+    <div class="container">
+      <img src="images/bot2.png" class="logo" alt="Логотип теста" title="Оценка двигательного статуса Брунинкс-Озерецкого">
+
+      <form>
+        <div class="form-group row">
+          <label class="col-4 text-right col-form-label">Дата обследования:</label>
+          <div class="col-8">
+            <input class="form-control" type="text" value="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-4 text-right col-form-label">Ф.И.О. пациента:</label>
+          <div class="col-8">
+            <input class="form-control" type="text" value="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-4 text-right col-form-label">Ф.И.О. специалиста:</label>
+          <div class="col-8">
+            <input class="form-control" type="text" value="">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-4 text-right col-form-label">Возраст:&nbsp;</label>
+          <div class="col-8">
+          <select class="custom-select" id="age-years">
+            <option value="4" selected>4 года</option>
+            <option value="5">5 лет</option>
+            <option value="6">6 лет</option>
+            <option value="7">7 лет</option>
+            <option value="8">8 лет</option>
+            <option value="9">9 лет</option>
+            <option value="10">10 лет</option>
+            <option value="11">11 лет</option>
+            <option value="12">12 лет</option>
+            <option value="13">13 лет</option>
+            <option value="14">14 лет</option>
+            <option value="15">15 лет</option>
+            <option value="16">16 лет</option>
+            <option value="17">17 лет</option>
+            <option value="18">18 лет</option>
+            <option value="19">19 лет</option>
+            <option value="20">20 лет</option>
+            <option value="21">21 год</option>
+          </select>
+
+          <select class="custom-select" id="age-months">
+            <option value="0" selected>0 месяцев</option>
+            <option value="1">1 месяц</option>
+            <option value="2">2 месяца</option>
+            <option value="3">3 месяца</option>
+            <option value="4">4 месяца</option>
+            <option value="5">5 месяцев</option>
+            <option value="6">6 месяцев</option>
+            <option value="7">7 месяцев</option>
+            <option value="8">8 месяцев</option>
+            <option value="9">9 месяцев</option>
+            <option value="10">10 месяцев</option>
+            <option value="11">11 месяцев</option>
+          </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-4 text-right col-form-label">Пол:&nbsp;</label>
+          <div class="col-8">
+            <div class="form-check form-check-inline gender-row">
+              <label class="form-check-label"><input class="form-check-input" type="radio" name="gender-radio" id="gender-radio-female" value="female"> Девочка</label>
+            </div>
+            <div class="form-check form-check-inline gender-row">
+              <label class="form-check-label"><input class="form-check-input" type="radio" name="gender-radio" id="gender-radio-male" value="male"> Мальчик</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-4 text-right col-form-label">Ведущая рука (письмо):</div>
+          <div class="col-8">
+            <div class="form-check form-check-inline gender-row">
+              <label class="form-check-label"><input class="form-check-input" type="radio" name="hands" id="inlineRadio1" value="option1"> Левая</label>
+            </div>
+            <div class="form-check form-check-inline gender-row">
+              <label class="form-check-label"><input class="form-check-input" type="radio" name="hands" id="inlineRadio2" value="option2"> Правая</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-4 col-form-label text-right">Ведущая рука (бросок):</div>
+          <div class="col-8">
+            <div class="form-check form-check-inline gender-row">
+              <label class="form-check-label"><input class="form-check-input" type="radio" name="shoulders" id="inlineRadio1" value="option1"> Левая</label>
+            </div>
+            <div class="form-check form-check-inline gender-row">
+              <label class="form-check-label"><input class="form-check-input" type="radio" name="shoulders" id="inlineRadio2" value="option2"> Правая</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-4 col-form-label text-right">Ведущая ступня/нога:</div>
+          <div class="col-8">
+            <div class="form-check form-check-inline gender-row">
+              <label class="form-check-label"><input class="form-check-input" type="radio" name="feet" id="inlineRadio1" value="option1"> Левая</label>
+            </div>
+            <div class="form-check form-check-inline gender-row">
+              <label class="form-check-label"><input class="form-check-input" type="radio" name="feet" id="inlineRadio2" value="option2"> Правая</label>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="row">
+        <div class="col">
+          <p class="debug-output">Debug:
+            <span class="age-converted">-</span> / <span class="selected-gender">-</span>,
+            <span class="tables-primary">-</span>,
+            <span class="tables-secondary">-</span>,
+            <span class="last-subtest">-</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col maintable-col">
+          <table class="table main-table">
+            <thead>
+              <tr>
+                <th><div class="thpad">Оценка двигательного статуса<br/> Брунинкс-Озерецкого</div></th>
+                <th>Общий<br/> балл</th>
+                <th>Шкала</br> оценки</th>
+                <th>Стандарты</th>
+                <th>Разброс</th>
+                <th>Интервал</th>
+                <th>&nbsp;%&nbsp;</th>
+                <th>Категория</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="subtest-group-1"> <!-- Subtest 1 -->
+                <th scope="row" class="unbold"><div class="clr">1. Точность мелкой моторики</div></th>
+                <td><div class="clr"><input type="text" class="form-control subtest-score sub-res-1" maxlength="2" onchange="subtestGo(1,1);"></div></td>
+                <td><div class="clr"><span class="subtest-1-scale scale-field">-</span></div></td>
+                <td><div class="clr">&nbsp;</div></td>
+                <td><div class="clr"><span class="subtest-1-spread">-</span></div></td>
+                <td><div class="clr"><span class="subtest-1-range">-</span></div></td>
+                <td><div class="clr">&nbsp;</div></td>
+                <td><div class="clr"><span class="subtest-1-category category-field">-</span></div></td>
+              </tr>
+              <tr class="subtest-group-1"> <!-- Subtest 2 -->
+                <th scope="row" class="unbold"><div class="clr">2. Интеграция мелкой моторики</div></th>
+                <td><div class="clr"><input type="text" class="form-control sub-res-2" maxlength="2" onchange="subtestGo(2,1);"></div></td>
+                <td><div class="clr"><span class="subtest-2-scale scale-field">-</span></div></td>
+                <td><div class="clr">&nbsp;</div></td>
+                <td><div class="clr"><span class="subtest-2-spread">-</span></div></td>
+                <td><div class="clr"><span class="subtest-2-range">-</span></div></td>
+                <td><div class="clr">&nbsp;</div></td>
+                <td><div class="clr"><span class="subtest-2-category category-field">-</span></div></td>
+              </tr>
+              <tr class="subtest-group-1"> <!-- Intermediate result 1 -->
+                <th scope="row"><div class="clr">Мелкая моторика</div></th>
+                <td class="text-right"><div class="clr">Сумма:</div></td>
+                <td><div class="clr"><span class="summary-1-summ summ-field">-</span></div></td>
+                <td><div class="clr"><span class="summary-1-scale scale-field">-</span></div></td>
+                <td><div class="clr"><span class="summary-1-spread">-</span></div></td>
+                <td><div class="clr"><span class="summary-1-range">-</span></div></td>
+                <td><div class="clr"><span class="summary-1-percentile">-</span></div></td>
+                <td><div class="clr"><span class="summary-1-category category-field">-</span></div></td>
+              </tr>
+
+              <tr class="subtest-group-2"> <!-- Subtest 3 -->
+                <th scope="row" class="unbold"><div class="clr">3. Ловкость рук</div></th>
+                <td><div class="clr"><input type="text" class="form-control sub-res-3" maxlength="2" onchange="subtestGo(3,2);"></div></td>
+                <td><div class="clr"><span class="subtest-3-scale scale-field">-</span></div></td>
+                <td><div class="clr">&nbsp;</div></td>
+                <td><div class="clr"><span class="subtest-3-spread">-</span></div></td>
+                <td><div class="clr"><span class="subtest-3-range">-</span></div></td>
+                <td><div class="clr">&nbsp;</div></td>
+                <td><div class="clr"><span class="subtest-3-category category-field">-</span></div></td>
+              </tr>
+              <tr class="subtest-group-2"> <!-- Subtest 7 -->
+                <th scope="row" class="unbold"><div class="clr">7. Координация верх. конечн.</div></th>
+                <td><div class="clr"><input type="text" class="form-control sub-res-7" maxlength="2" onchange="subtestGo(7,2);"></div></td>
+                <td><div class="clr"><span class="subtest-7-scale scale-field">-</span></div></td>
+                <td><div class="clr">&nbsp;</div></td>
+                <td><div class="clr"><span class="subtest-7-spread">-</span></div></td>
+                <td><div class="clr"><span class="subtest-7-range">-</span></div></td>
+                <td><div class="clr">&nbsp;</div></td>
+                <td><div class="clr"><span class="subtest-7-category category-field">-</span></div></td>
+              </tr>
+              <tr class="subtest-group-2"> <!-- Intermediate result 2 -->
+                <th scope="row"><div class="clr">Крупная моторика</div></th>
+                <td class="text-right"><div class="clr">Сумма:</div></td>
+                <td><div class="clr"><span class="summary-2-summ summ-field">-</span></div></td>
+                <td><div class="clr"><span class="summary-2-scale scale-field">-</span></div></td>
+                <td><div class="clr"><span class="summary-2-spread">-</span></div></td>
+                <td><div class="clr"><span class="summary-2-range">-</span></div></td>
+                <td><div class="clr"><span class="summary-2-percentile">-</span></div></td>
+                <td><div class="clr"><span class="summary-2-category category-field">-</span></div></td>
+              </tr>
+
+              <tr class="subtest-group-3"> <!-- Subtest 4 -->
+                <th scope="row" class="unbold"><div class="clr">4. Билатеральные навыки</div></th>
+                <td><div class="clr"><input type="text" class="form-control sub-res-4" maxlength="2" onchange="subtestGo(4,3);"></div></td>
+                <td><div class="clr"><span class="subtest-4-scale scale-field">-</span></div></td>
+                <td><div class="clr">&nbsp;</div></td>
+                <td><div class="clr"><span class="subtest-4-spread">-</span></div></td>
+                <td><div class="clr"><span class="subtest-4-range">-</span></div></td>
+                <td><div class="clr">&nbsp;</div></td>
+                <td><div class="clr"><span class="subtest-4-category category-field">-</span></div></td>
+              </tr>
+              <tr class="subtest-group-3"> <!-- Subtest 5 -->
+                <th scope="row" class="unbold"><div class="clr">5. Баланс</div></th>
+                <td><div class="clr"><input type="text" class="form-control sub-res-5" maxlength="2" onchange="subtestGo(5,3);"></div></td>
+                <td><div class="clr"><span class="subtest-5-scale scale-field">-</span></div></td>
+                <td><div class="clr">&nbsp;</div></td>
+                <td><div class="clr"><span class="subtest-5-spread">-</span></div></td>
+                <td><div class="clr"><span class="subtest-5-range">-</span></div></td>
+                <td><div class="clr">&nbsp;</div></td>
+                <td><div class="clr"><span class="subtest-5-category category-field">-</span></div></td>
+              </tr>
+              <tr class="subtest-group-3"> <!-- Intermediate result 3 -->
+                <th scope="row"><div class="clr">Координация</div></th>
+                <td class="text-right"><div class="clr">Сумма:</div></td>
+                <td><div class="clr"><span class="summary-3-summ summ-field">-</span></div></td>
+                <td><div class="clr"><span class="summary-3-scale scale-field">-</span></div></td>
+                <td><div class="clr"><span class="summary-3-spread">-</span></div></td>
+                <td><div class="clr"><span class="summary-3-range">-</span></div></td>
+                <td><div class="clr"><span class="summary-3-percentile">-</span></div></td>
+                <td><div class="clr"><span class="summary-3-category category-field">-</span></div></td>
+              </tr>
+
+              <tr class="subtest-group-4"> <!-- Subtest 6 -->
+                <th scope="row" class="unbold"><div class="clr">6. Скорость бега и ловкость</div></th>
+                <td><div class="clr"><input type="text" class="form-control sub-res-6" maxlength="2" onchange="subtestGo(6,4);"></div></td>
+                <td><div class="clr"><span class="subtest-6-scale scale-field">-</span></div></td>
+                <td><div class="clr">&nbsp;</div></td>
+                <td><div class="clr"><span class="subtest-6-spread">-</span></div></td>
+                <td><div class="clr"><span class="subtest-6-range">-</span></div></td>
+                <td><div class="clr">&nbsp;</div></td>
+                <td><div class="clr"><span class="subtest-6-category category-field">-</span></div></td>
+              </tr>
+              <tr class="subtest-group-4"> <!-- Subtest 8 -->
+                <th scope="row" class="unbold"><div class="clr">
+                  <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="subtest-8-select">
+                    <option value="8" selected>8a. Отжимания с колен</option>
+                    <option value="9">8b. Полные отжимания</option>
+                  </select>
+                </div></th>
+                <td><div class="clr"><input type="text" class="form-control sub-res-8 sub-res-9" maxlength="2" onchange="subtestGo(8,4);"></div></td>
+                <td><div class="clr"><span class="subtest-8-scale subtest-9-scale scale-field">-</span></div></td>
+                <td><div class="clr">&nbsp;</div></td>
+                <td><div class="clr"><span class="subtest-8-spread subtest-9-spread">-</span></div></td>
+                <td><div class="clr"><span class="subtest-8-range subtest-9-range">-</span></div></td>
+                <td><div class="clr">&nbsp;</div></td>
+                <td><div class="clr"><span class="subtest-8-category subtest-9-category category-field">-</span></div></td>
+              </tr>
+              <tr class="subtest-group-4"> <!-- Intermediate result 4 -->
+                <th scope="row"><div class="clr">Сила и ловкость</div></th>
+                <td class="text-right"><div class="clr">Сумма:</div></td>
+                <td><div class="clr"><span class="summary-4-summ summary-5-summ summ-field">-</span></div></td>
+                <td><div class="clr"><span class="summary-4-scale summary-5-scale scale-field">-</span></div></td>
+                <td><div class="clr"><span class="summary-4-spread summary-5-spread">-</span></div></td>
+                <td><div class="clr"><span class="summary-4-range summary-5-range">-</span></div></td>
+                <td><div class="clr"><span class="summary-4-percentile summary-5-percentile">-</span></div></td>
+                <td><div class="clr"><span class="summary-4-category summary-5-category category-field">-</span></div></td>
+              </tr>
+
+              <tr class="totals-row-1"> <!-- Totals -->
+                <td><div class="clr"></div></td>
+                <td><div class="clr"></div></td>
+                <td class="text-right"><div class="clr">Сумма:</div></td>
+                <td><div class="clr"><span class="summ-field total-score">-</span></div></td>
+                <td><div class="clr"></div></td>
+                <td><div class="clr"></div></td>
+                <td><div class="clr"></div></td>
+                <td><div class="clr"></div></td>
+              </tr>
+              <tr class="totals-row-2"> <!-- Totals -->
+                <td colspan="3" class="text-right"><div class="clr"><b>Общий двигательный балл:</b></div></td>
+                <td><div class="clr"><span class="summ-field total-scale">-</span></td>
+                <td><div class="clr"><span class="total-spread">-</span></div></td>
+                <td><div class="clr"><span class="total-range">-</span></div></td>
+                <td><div class="clr"><span class="total-percentile">-</span></div></td>
+                <td><div class="clr"><span class="total-category">-</span></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row row-divider"><div class="col"></div></div>
+      <div class="row row-divider"><div class="col"></div></div>
+      <div class="row row-divider"><div class="col"></div></div>
+      <div class="row row-divider"><div class="col"></div></div>
+
+      <div class="row">
+        <div class="col header">
+          <img src="images/logo-rp.jpg" class="logo-rp" alt="Логотип НИИ" title="Логотип НИИ">
+          <p>Министерство Здравоохранения Российской Федерации<br/>
+          Федеральное Государственное Бюджетное Учреждение<br/>
+          «Федеральный научно-клинический центр детской гематологии, онкологии и иммунологии имени Дмитрия&nbsp;Рогачева»<br/>
+
+          <b>«Лечебно-реабилитационный научный центр "Русское Поле"»</b><br/>
+
+          <span class="addresses">(ЛРНЦ «Русское поле» ФГБУ ФНКЦ ДГОИ им. Дмитрия Рогачева Минздрава России)<br/>
+          142321, Московская область, Чеховский район, С.П. Стремиловское, д. Гришенки.<br/>
+          Телефон: 8 (495) 797-92-33, факс: 8 (495) 787-55-16, e-mail: russkoe-pole@mail.ru</span></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col form-group">
+          <textarea class="form-control" rows="2">Исследование мелкой и крупной моторики, координации, силы и ловкости у детей с диагнозом:</textarea>
+        </div>
+      </div>
+
+      <form>
+        <div class="form-group row">
+          <label class="col-3 text-right col-form-label">Дата обследования:</label>
+          <div class="col-9">
+            <input class="form-control" type="text" value="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-3 text-right col-form-label">Ф.И.О. пациента:</label>
+          <div class="col-9">
+            <input class="form-control" type="text" value="">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-3 text-right col-form-label">Возраст:&nbsp;</label>
+          <div class="col-9">
+          <select class="custom-select" id="age-years">
+            <option value="4" selected>4 года</option>
+            <option value="5">5 лет</option>
+            <option value="6">6 лет</option>
+            <option value="7">7 лет</option>
+            <option value="8">8 лет</option>
+            <option value="9">9 лет</option>
+            <option value="10">10 лет</option>
+            <option value="11">11 лет</option>
+            <option value="12">12 лет</option>
+            <option value="13">13 лет</option>
+            <option value="14">14 лет</option>
+            <option value="15">15 лет</option>
+            <option value="16">16 лет</option>
+            <option value="17">17 лет</option>
+            <option value="18">18 лет</option>
+            <option value="19">19 лет</option>
+            <option value="20">20 лет</option>
+            <option value="21">21 год</option>
+          </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-3 text-right col-form-label">Диагноз:</label>
+          <div class="col-9">
+            <input class="form-control" type="text" value="">
+          </div>
+        </div>
+      </form>
+
+
+      <div class="row">
+        <div class="col">
+          <table class="table graph-table">
+            <tr>
+              <td></td>
+              <td>
+                <div class="graph-bar-wrap">
+                  <div class="graph-lines graph-20">20</div>
+                  <div class="graph-lines graph-30">30</div>
+                  <div class="graph-lines graph-40">40</div>
+                  <div class="graph-lines graph-50">50</div>
+                  <div class="graph-lines graph-60">60</div>
+                  <div class="graph-lines graph-70">70</div>
+                  <div class="graph-lines graph-80">80</div>
+                  <div class="graph-lines graph-90">90</div>
+                </div>
+                <div class="cell-normality cell-very-subnormal">Знач. ниже нормы</div>
+                <div class="cell-normality cell-subnormal">Ниже нормы</div>
+                <div class="cell-normality cell-normal">Норма</div>
+                <div class="cell-normality cell-supnormal">Выше нормы</div>
+                <div class="cell-normality cell-very-supnormal">Знач. выше нормы</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="graph-caption">Общий двигательный балл</td>
+              <td class="graph-ruler">
+                <div class="graph-bar">
+                  <div class="graph-value graph-total-value">◆</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="graph-caption">A. Мелкая моторика</td>
+              <td>
+                <div class="graph-bar">
+                  <div class="graph-value graph-summary-1-value">◆</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="graph-caption">B. Крупная моторика</td>
+              <td>
+                <div class="graph-bar">
+                  <div class="graph-value graph-summary-2-value">◆</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="graph-caption">C. Координация</td>
+              <td>
+                <div class="graph-bar">
+                  <div class="graph-value graph-summary-3-value">◆</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="graph-caption">D. Сила и ловкость</td>
+              <td>
+                <div class="graph-bar">
+                  <div class="graph-value graph-summary-4-value">◆</div>
+                </div>
+              </td>
+            </tr>
+          </table>
+
+          <table class="table graph-table">
+            <tr>
+              <td><b>Профиль субтестов</b></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="graph-caption">1. Точность мелкой моторики</td>
+              <td class="graph-ruler">
+                <div class="graph-bar-wrap">
+                  <div class="graph-lines graph-20">0</div>
+                  <div class="graph-lines graph-30">5</div>
+                  <div class="graph-lines graph-40">10</div>
+                  <div class="graph-lines graph-50">15</div>
+                  <div class="graph-lines graph-60">20</div>
+                  <div class="graph-lines graph-70">25</div>
+                  <div class="graph-lines graph-80">30</div>
+                  <div class="graph-lines graph-90">35</div>
+                  <div class="graph-bar">
+                    <div class="graph-value graph-subtest-1-value">◆</div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="graph-caption">2. Интеграция мелкой моторики</td>
+              <td>
+                <div class="graph-bar">
+                  <div class="graph-value graph-subtest-2-value">◆</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="graph-caption">3. Ловкость рук</td>
+              <td>
+                <div class="graph-bar">
+                  <div class="graph-value graph-subtest-3-value">◆</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="graph-caption">4. Билатеральные навыки</td>
+              <td>
+                <div class="graph-bar">
+                  <div class="graph-value graph-subtest-4-value">◆</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="graph-caption">5. Баланс</td>
+              <td>
+                <div class="graph-bar">
+                  <div class="graph-value graph-subtest-5-value">◆</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="graph-caption">6. Скорость бега и ловкость</td>
+              <td>
+                <div class="graph-bar">
+                  <div class="graph-value graph-subtest-6-value">◆</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="graph-caption">7. Координация верх. конечн.</td>
+              <td>
+                <div class="graph-bar">
+                  <div class="graph-value graph-subtest-7-value">◆</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="graph-caption-8 graph-caption">8a. Отжимания с колен</td>
+              <td>
+                <div class="graph-bar">
+                  <div class="graph-value graph-subtest-8-value">◆</div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <p>&nbsp;</p>
+          <p><b>Заключение:</b></p>
+          <textarea class="form-control" rows="4"></textarea>
+          <p>Исследователь</p>
+          <div class="row">
+          <div class="col-3"><input class="form-control" type="text" value=""></div>
+          <div class="col-9">/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Application Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/tables.js"></script>
+    <script src="js/graph.js"></script>
+  </body>
+</html>
