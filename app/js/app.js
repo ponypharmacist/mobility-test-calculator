@@ -1,13 +1,5 @@
 // Made by Dmitry Glinskiy, contact me at glinskiy.net
-// Variables
-var ageYears = 0;
-var ageMonths = 0;
-var ageConverted = null;
-var genderSelected = null;
-var tablePrimaryName = 0;
-var tableSecondaryName = 0;
-
-// Primitive range function
+// Primitive range and summ functions
 function range(x, min, max) {
   return x >= min && x <= max;
 };
@@ -16,97 +8,27 @@ function getSumm(a,b) {
   return a + b;
 };
 
-// Chooses B1-2 table based on age and gender
-function choosePrimaryTable () {
-  if (range(ageConverted, 0, 47)) {
-    tablePrimaryName = 'AgeUnrealisticallyYoung';
-  } else if (range(ageConverted, 48, 51)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_40to43';
-  } else if (range(ageConverted, 52, 55)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_44to47';
-  } else if (range(ageConverted, 56, 59)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_48to411';
-  } else if (range(ageConverted, 60, 63)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_50to53';
-  } else if (range(ageConverted, 64, 67)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_54to57';
-  } else if (range(ageConverted, 68, 71)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_58to511';
-  } else if (range(ageConverted, 72, 75)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_60to63';
-  } else if (range(ageConverted, 76, 79)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_64to67';
-  } else if (range(ageConverted, 80, 83)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_68to611';
-  } else if (range(ageConverted, 84, 87)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_70to73';
-  } else if (range(ageConverted, 88, 91)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_74to77';
-  } else if (range(ageConverted, 92, 95)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_78to711';
-  } else if (range(ageConverted, 96, 101)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_80to85';
-  } else if (range(ageConverted, 102, 107)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_86to811';
-  } else if (range(ageConverted, 108, 113)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_90to95';
-  } else if (range(ageConverted, 114, 119)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_96to911';
-  } else if (range(ageConverted, 120, 125)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_100to105';
-  } else if (range(ageConverted, 126, 131)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_106to1011';
-  } else if (range(ageConverted, 132, 137)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_110to115';
-  } else if (range(ageConverted, 138, 143)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_116to1111';
-  } else if (range(ageConverted, 144, 149)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_120to125';
-  } else if (range(ageConverted, 150, 155)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_126to1211';
-  } else if (range(ageConverted, 156, 161)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_130to135';
-  } else if (range(ageConverted, 162, 167)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_136to1311';
-  } else if (range(ageConverted, 168, 179)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_140to1411';
-  } else if (range(ageConverted, 180, 191)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_150to1511';
-  } else if (range(ageConverted, 192, 203)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_160to1611';
-  } else if (range(ageConverted, 204, 227)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_170to1811';
-  } else if (range(ageConverted, 228, 264)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_190to2111';
-  } else {
-    tablePrimaryName = 'AgeUnrealisticallyOld';
-  }
-  $('.tables-primary').html(tablePrimaryName);
+
+// Реагируем на ввод результатов субтеста
+function subtestGo(a,b) {
+  var lastSubtest = a;
+  var summaryGroup = b;
+  var lastSubtestResult = $('.sub-res-' + a).val();
+  var lastSubtestScale = scanArray(tablePrimaryName, lastSubtest, lastSubtestResult);
+  var lastSubtestCategory = getSubtestCategory(lastSubtestScale);
+  var lastSubtestSpread = getSubtestSpread(lastSubtest);
+  var lastSubtestRange = getSubtestRange(lastSubtestScale, lastSubtestSpread);
+
+  $('.subtest-' + lastSubtest + '-scale').html(lastSubtestScale);
+  $('.subtest-' + lastSubtest + '-spread').html(lastSubtestSpread);
+  $('.subtest-' + lastSubtest + '-range').html(lastSubtestRange);
+  $('.subtest-' + lastSubtest + '-category').html(lastSubtestCategory);
+
+  $('.last-subtest').html(lastSubtest + ' (' + lastSubtestResult + ')'); // Debug info ToDo: Delete
+
+  runSubtestSumm(summaryGroup);
 };
 
-// Chooses B4-5 table based on age and gender
-function chooseSecondaryTable () {
-  if (range(ageConverted, 0, 47)) {
-    tableSecondaryName = 'AgeUnrealisticallyYoung';
-  } else if (range(ageConverted, 48, 59)) {
-    tableSecondaryName = 'secondary_' + genderSelected + '_40to411';
-  } else if (range(ageConverted, 60, 71)) {
-    tableSecondaryName = 'secondary_' + genderSelected + '_50to511';
-  } else if (range(ageConverted, 72, 95)) {
-    tableSecondaryName = 'secondary_' + genderSelected + '_60to711';
-  } else if (range(ageConverted, 96, 119)) {
-    tableSecondaryName = 'secondary_' + genderSelected + '_80to911';
-  } else if (range(ageConverted, 120, 143)) {
-    tableSecondaryName = 'secondary_' + genderSelected + '_100to1111';
-  } else if (range(ageConverted, 144, 179)) {
-    tableSecondaryName = 'secondary_' + genderSelected + '_120to1411';
-  } else if (range(ageConverted, 180, 264)) {
-    tableSecondaryName = 'secondary_' + genderSelected + '_150to2111';
-  } else {
-    tableSecondaryName = 'AgeUnrealisticallyOld';
-  }
-  $('.tables-secondary').html(tableSecondaryName);
-};
 
 // Array Scanner function
 function scanArray (table, subtest, targetScore) {
@@ -150,6 +72,37 @@ function getSubtestCategory(scaleToPut) {
   return categoryName;
 };
 
+
+// Берем данные из таблицы С1
+function getSubtestSpread (subtest) {
+  var ageGroup;
+
+  if (range(ageYears, 4, 12)) {
+    ageGroup = ageYears;
+  } else if (range(ageYears, 13, 14)) {
+    ageGroup = 13;
+  } else if (range(ageYears, 15, 16)) {
+    ageGroup = 14;
+  } else if (range(ageYears, 17, 21)) {
+    ageGroup = 15;
+  } else {
+    alert('Ошибка в обработке таблицы С1. Нужен дебаг: getSubtestSpread');
+  }
+
+  return table_c1[subtest][ageGroup];
+};
+
+
+// Определяем интервал на базе разброса
+function getSubtestRange(scale, spread) {
+  var lowerRange = parseInt(scale) - parseInt(spread);
+  var upperRange = parseInt(scale) + parseInt(spread);
+  var resultingRange =  lowerRange + ' - ' + upperRange;
+  return resultingRange;
+};
+
+
+//
 function getSummaryCategory(scaleToPut) {
   var categoryName = 0;
 
@@ -171,25 +124,6 @@ function getSummaryCategory(scaleToPut) {
 };
 
 
-// Берем данные из таблицы С1
-function getSubtestSpread (subtest) {
-  var ageGroup;
-
-  if (range(ageYears, 4, 12)) {
-    ageGroup = ageYears;
-  } else if (range(ageYears, 13, 14)) {
-    ageGroup = 13;
-  } else if (range(ageYears, 15, 16)) {
-    ageGroup = 14;
-  } else if (range(ageYears, 17, 21)) {
-    ageGroup = 15;
-  } else {
-    alert('Ошибка в обработке таблицы С1. Нужен дебаг: getSubtestSpread');
-  }
-
-  return table_c1[subtest][ageGroup];
-};
-
 // Берем данные из таблицы С3
 function getSummarySpread(summary) {
   var ageGroup;
@@ -207,14 +141,6 @@ function getSummarySpread(summary) {
   }
 
   return table_c3[summary][ageGroup];
-};
-
-// Определяем интервал на базе разброса
-function getSubtestRange(scale, spread) {
-  var lowerRange = parseInt(scale) - parseInt(spread);
-  var upperRange = parseInt(scale) + parseInt(spread);
-  var resultingRange =  lowerRange + ' - ' + upperRange;
-  return resultingRange;
 };
 
 
@@ -293,73 +219,11 @@ function checkSumsReady () {
   }
 };
 
-// Реагируем на ввод результатов субтеста
-function subtestGo(a,b) {
-  var lastSubtest = a;
-  var summaryGroup = b;
-  var lastSubtestResult = $('.sub-res-' + a).val();
-  var lastSubtestScale = scanArray(tablePrimaryName, lastSubtest, lastSubtestResult);
-  var lastSubtestCategory = getSubtestCategory(lastSubtestScale);
-  var lastSubtestSpread = getSubtestSpread(lastSubtest);
-  var lastSubtestRange = getSubtestRange(lastSubtestScale, lastSubtestSpread);
-
-  $('.subtest-' + lastSubtest + '-scale').html(lastSubtestScale);
-  $('.subtest-' + lastSubtest + '-spread').html(lastSubtestSpread);
-  $('.subtest-' + lastSubtest + '-range').html(lastSubtestRange);
-  $('.subtest-' + lastSubtest + '-category').html(lastSubtestCategory);
-
-  $('.last-subtest').html(lastSubtest + ' (' + lastSubtestResult + ')'); // Debug info ToDo: Delete
-
-  runSubtestSumm(summaryGroup);
-};
-
 //
 function setAgeConverted (a,b) {
   ageConverted = ageYears * 12 + ageMonths;
   $('.age-converted').html(ageConverted);
 };
-
-$(document).ready(function(){
-  // Реагируем на смену возраста
-  $('#age-years').on('change', function() {
-    ageYears = parseInt(this.value);
-    ageMonths = parseInt($('#age-months').val());
-    setAgeConverted (ageYears, ageMonths);
-    ageConverted && genderSelected && choosePrimaryTable();
-    ageConverted && genderSelected && chooseSecondaryTable();
-  });
-
-  // Реагируем на смену возраста
-  $('#age-months').on('change', function() {
-    ageMonths = parseInt(this.value);
-    ageYears = parseInt($('#age-years').val());
-    setAgeConverted (ageYears, ageMonths);
-    ageConverted && genderSelected && choosePrimaryTable();
-    ageConverted && genderSelected && chooseSecondaryTable();
-  });
-
-  // Реагируем на смену пола
-  $('.form-check-input').on('change', function() {
-    genderSelected = $('input[name=gender-radio]:checked').val();
-    $('.selected-gender').html(genderSelected);
-    ageConverted && genderSelected && choosePrimaryTable();
-    ageConverted && genderSelected && chooseSecondaryTable();
-  });
-
-// Непонятно, как обрабатывать 9 и 9a
- $('#subtest-8-select').on('change', function() {
-    var strVal = this.value;
-    var strVal2 = strVal - 4;
-    $('.sub-res-8').attr('onchange','subtestGo(' + strVal + ',' + strVal2 + ');');
-
-    if (strVal == 9) {
-      $('.graph-caption-8').html('8b. Полные отжимания');
-    } else {
-      $('.graph-caption-8').html('8a. Отжимания с колен');
-    }
-  });
-
-});
 
 
 // Update grand totals, yes!
