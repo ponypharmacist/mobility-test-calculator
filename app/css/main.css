@@ -8,6 +8,10 @@ h1 {
   padding: 0.5em 0;
 }
 
+.pagebreak {
+  page-break-before: always;
+}
+
 .container {
   min-height: 100vh;
   background-color: #ffffff;
@@ -206,7 +210,7 @@ form {
   .debug-output { display: none; }
 
   input, textarea, select, option, label, .form-control, .col-form-label,
-  p, th, td {
+  p, th, td, .paragraph {
     font-size:12px;
   }
   .form-group {
@@ -287,6 +291,11 @@ form {
   .graph-table th, .graph-table td {
     font-size: 11px;
     padding: 0!important;
+  }
+
+  .pad-left-30 {
+    padding-left: 15px;
+    padding-top: 5px;
   }
 }
 /* Made by Dmitry Glinskiy, contact me at glinskiy.net */
