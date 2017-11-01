@@ -1,7 +1,7 @@
 /* Made by Dmitry Glinskiy, contact me at glinskiy.net */
 body {
   background-color: #f1f1f1;
- -webkit-print-color-adjust:exact;
+  -webkit-print-color-adjust:exact;
 }
 
 h1 {
@@ -12,8 +12,11 @@ h1 {
   page-break-before: always;
 }
 
-.container {
+.container-custom {
+  width: 932px;
   min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 15px;
   background-color: #ffffff;
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
@@ -58,31 +61,56 @@ form {
 }
 
 /* Main Table */
-.maintable-col {
-
-}
-
-.table {
-  margin-bottom: 0;
-}
+.table { margin-bottom: 0; }
 .main-table th,
 .main-table td {
   vertical-align: middle;
   border-color: #fff;
+  padding: 0;
 }
 
 .main-table td {
 }
 
-.subtest-group-1 td, .subtest-group-1 th { background-color: #fff2f2; }
-.subtest-group-2 td, .subtest-group-2 th { background-color: #fff9f2; }
-.subtest-group-3 td, .subtest-group-3 th { background-color: #f2f5ff; }
-.subtest-group-4 td, .subtest-group-4 th { background-color: #f2fff3; }
+.subtest-group-1 .clr { background-color: #fff2f2; }
+.subtest-group-2 .clr { background-color: #fff9f2; }
+.subtest-group-3 .clr { background-color: #f2f5ff; }
+.subtest-group-4 .clr { background-color: #f2fff3; }
+
+.clr {
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  line-height: 32px;
+  padding: 4px 0;
+}
+th .clr, .thpad {
+  padding-left: 8px;
+}
+.th-clr {
+  font-weight: 500;
+  background-color: #00807b;
+  color: #fff;
+  line-height: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  height: 100%;
+}
 
 .unbold {
   font-weight: normal!important;
 }
 
+input.form-control {
+  display: inline-block;
+  height: 32px;
+  padding: 8px 6px;
+}
+select.custom-select {
+  display: inline-block;
+  height: 32px;
+  padding: 4px 30px 4px 6px;
+}
 .main-table td .form-control,
 .scale-field,
 .summ-field {
@@ -90,6 +118,7 @@ form {
   width: 60px;
   text-align: center;
   padding: 5px 10px;
+  line-height: 18px;
 }
 .scale-field {
   background-color: rgba(255,255,255,0.85);
@@ -129,6 +158,7 @@ form {
   line-height: 14px;
   padding: 13px 4px;
 }
+
 .cell-very-subnormal { width: 14.285%; padding: 6px 4px; background-color: #eee;}
 .cell-subnormal { width: 14.285%; background-color: #ccc; }
 .cell-normal { width: 28.57%; background-color: #aaa; }
@@ -187,17 +217,23 @@ form {
 
 /* Print styles */
 @media print {
-  body { background-color: #fff; }
-
-  .container {
-    min-height: auto;
-    width: 100%;
-    max-width:100%;
-    border: none;
-    padding: 0 25px;
+  body {
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
   }
-  .col, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10 {
+
+  .container-custom {
+    min-height: auto;
+    width: 900px!important;
+    max-width:900px;
+    border: none;
     padding: 0;
+    margin: 0;
+  }
+  .row, .col, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-12 {
+    padding: 0;
+    margin: 0;
   }
   .header {
     padding: 20px 10px 0 150px;
@@ -209,10 +245,6 @@ form {
   }
   .debug-output { display: none; }
 
-  input, textarea, select, option, label, .form-control, .col-form-label,
-  p, th, td, .paragraph {
-    font-size:12px;
-  }
   .form-group {
     margin: 0;
   }
@@ -257,27 +289,6 @@ form {
   .cell-supnormal { padding: 6px 4px; }
   .cell-very-supnormal {  }
 
-  .main-table th, .main-table td {
-    font-size: 11px;
-    padding: 0;
-  }
-  .main-table thead th {
-    padding: 5px 0;
-  }
-  .clr {
-    display: inline-block;
-    width: 100%;
-    height: 30px;
-    line-height: 30px;
-    padding: 0;
-  }
-  .subtest-group-1 .clr { background-color: #fff2f2; }
-  .subtest-group-2 .clr { background-color: #fff9f2; }
-  .subtest-group-3 .clr { background-color: #f2f5ff; }
-  .subtest-group-4 .clr { background-color: #f2fff3; }
-  th .clr, .thpad {
-    padding-left: 8px;
-  }
   .main-table td .form-control,
   .scale-field,
   .summ-field {
@@ -289,7 +300,6 @@ form {
   }
 
   .graph-table th, .graph-table td {
-    font-size: 11px;
     padding: 0!important;
   }
 
