@@ -22,45 +22,96 @@ h1 {
   border-right: 1px solid #ddd;
 }
 
-.logo {
-  padding: 12px 0 0;
-}
+/*========================================*/
+/* Шапки бланков */
+/*========================================*/
+.logo { padding: 12px 0 0; width: 300px; margin: 0 300px; }
 
 .header {
+  width: 100%;
   text-align: center;
-  padding: 20px 10px 0 160px;
-  border-bottom: 1px solid #333;
+  padding: 10px 10px 0 160px;
+  border-bottom: 1px solid #00807b;
   margin: 0 15px 15px;
 }
 .header p {
   margin: 0;
+  font-size: 15px;
+  line-height: 20px;
 }
 .logo-rp {
   float: left;
   width: 150px;
   margin-left: -160px;
+  margin-top: 15px;
 }
 .addresses {
   display: inline-block;
-  font-size: 85%;
-  line-height: 125%;
+  font-size: 12px;
+  line-height: 16px;
   padding-top: 5px;
   padding-bottom: 15px;
 }
 
-.gender-row {
-  padding: 6px 0 0 2px;
+/*========================================*/
+/* Формы ввода данных пациента */
+/*========================================*/
+.patient-data {
+  padding-bottom: 20px !important;
 }
 
-.debug-output span {
-  font-weight: bold;
+h5 {
+  color: #00807b;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  border-top: 6px solid #eee;
 }
 
-form {
-  margin: 24px 0;
+input.form-control {
+  display: inline-block;
+  max-width: 200px;
+  border: none;
+  background-color: rgba(0,0,0,0.05);
+  height: 32px;
+  padding: 8px 6px;
 }
 
+input.medium-field { width: 120px; }
+input.short-field {  max-width: 30px; }
+input.inline-mini {  width: 90px; height: 20px; }
+input.name-field {   max-width: 330px; }
+
+select.select-control {
+  display: inline-block;
+  width: 120px;
+  border: none;
+  background-color: rgba(0,0,0,0.05);
+  height: 32px;
+  padding: 0px 6px;
+  vertical-align: baseline;
+}
+#subtest-8-select {
+  width: 210px;
+  padding: 0;
+}
+#subtest-8-select option {
+  padding: 0;
+}
+
+textarea.form-control {
+  border: none;
+  background-color: rgba(0,0,0,0.05);
+  margin: 10px 0;
+}
+
+.label-120 {
+  width: 175px;
+  text-align: right;
+}
+
+/*========================================*/
 /* Main Table */
+/*========================================*/
 .table { margin-bottom: 0; }
 .main-table th,
 .main-table td {
@@ -69,13 +120,10 @@ form {
   padding: 0;
 }
 
-.main-table td {
-}
-
-.subtest-group-1 .clr { background-color: #fff2f2; }
-.subtest-group-2 .clr { background-color: #fff9f2; }
-.subtest-group-3 .clr { background-color: #f2f5ff; }
-.subtest-group-4 .clr { background-color: #f2fff3; }
+.subtest-group-1 .clr { background-color: #fff; }
+.subtest-group-2 .clr { background-color: #eee; }
+.subtest-group-3 .clr { background-color: #fff; }
+.subtest-group-4 .clr { background-color: #eee; }
 
 .clr {
   display: inline-block;
@@ -101,16 +149,6 @@ th .clr, .thpad {
   font-weight: normal!important;
 }
 
-input.form-control {
-  display: inline-block;
-  height: 32px;
-  padding: 8px 6px;
-}
-select.custom-select {
-  display: inline-block;
-  height: 32px;
-  padding: 4px 30px 4px 6px;
-}
 .main-table td .form-control,
 .scale-field,
 .summ-field {
@@ -119,6 +157,7 @@ select.custom-select {
   text-align: center;
   padding: 5px 10px;
   line-height: 18px;
+  height: 28px;
 }
 .scale-field {
   background-color: rgba(255,255,255,0.85);
@@ -137,7 +176,10 @@ select.custom-select {
   margin: 30px 0;
 }
 
+
+/*========================================*/
 /* Graphs */
+/*========================================*/
 .graph-table {
   width: 100%;
   margin: 16px 0 0;
@@ -160,9 +202,9 @@ select.custom-select {
 }
 
 .cell-very-subnormal { width: 14.285%; padding: 6px 4px; background-color: #eee;}
-.cell-subnormal { width: 14.285%; background-color: #ccc; }
+.cell-subnormal { width: 14.285%; background-color: #ccc; padding: 6px 4px;}
 .cell-normal { width: 28.57%; background-color: #aaa; }
-.cell-supnormal { width: 14.285%; background-color: #ccc; }
+.cell-supnormal { width: 14.285%; background-color: #ccc; padding: 6px 4px;}
 .cell-very-supnormal { width: 28.57%; background-color: #eee; }
 
 .graph-caption {
@@ -218,9 +260,9 @@ select.custom-select {
 /* Print styles */
 @media print {
   body {
-  background-color: #fff;
-  padding: 0;
-  margin: 0;
+    background-color: #fff;
+    padding: 0;
+    margin: 0;
   }
 
   .container-custom {
@@ -235,77 +277,18 @@ select.custom-select {
     padding: 0;
     margin: 0;
   }
-  .header {
-    padding: 20px 10px 0 150px;
-    margin: 0 0 15px;
+  .debug-output {
+    display: none;
   }
-  .logo-rp {
-    padding-top: 10px;
-    margin-left: -150px;
+  input.form-control::placeholder {
+    color: transparent;
   }
-  .debug-output { display: none; }
-
-  .form-group {
-    margin: 0;
+  select {
+    -webkit-appearance: none !important;
   }
-  select, option, .custom-select {
-    border: 0px none;
-    padding: 0;
-    background: none;
-    height: 20px;
-    line-height: 20px;
-    vertical-align: top;
-  }
-  .form-control {
-    border: 0px none;
-    padding: 0;
-    background: none;
-  }
-  .form-group .form-control {
-    padding: 2px 0 0;
-  }
-  .col-form-label {
-    padding: 0 6px 0 0;
-  }
-  .form-check {
-    margin-bottom: 0;
-  }
-  .form-check-inline .form-check-label {
-    vertical-align: top;
-  }
-  .gender-row {
-    padding: 0;
-  }
-  .form-check-input {
-    float: left;
-  }
-  .cell-normality {
-    height: 36px;
-    line-height: 12px;
-  }
-  .cell-very-subnormal { }
-  .cell-subnormal { padding: 6px 4px; }
-  .cell-normal {  }
-  .cell-supnormal { padding: 6px 4px; }
-  .cell-very-supnormal {  }
-
-  .main-table td .form-control,
-  .scale-field,
-  .summ-field {
-    width: 40px;
-    height: 24px;
-    line-height: 24px;
-    margin: 3px 0;
-    padding: 0;
+  #subtest-8-select {
+    background-color: transparent !important;
   }
 
-  .graph-table th, .graph-table td {
-    padding: 0!important;
-  }
-
-  .pad-left-30 {
-    padding-left: 15px;
-    padding-top: 5px;
-  }
 }
 /* Made by Dmitry Glinskiy, contact me at glinskiy.net */

@@ -13,28 +13,49 @@
   </head>
   <body>
     <div class="container-custom">
-      <img src="images/bot2.png" class="logo" alt="Логотип теста" title="Оценка двигательного статуса Брунинкс-Озерецкого">
+      <div class="bot-header">
+        <img src="images/bot2.png" class="logo" alt="Логотип теста" title="Оценка двигательного статуса Брунинкс-Озерецкого">
+      </div>
 
-      <form>
-        <div class="form-group row">
-          <label class="col-4 text-right col-form-label">Дата обследования:</label>
-          <div class="col-8">
-            <input id="test-date" class="form-control" type="text" value="">
-          </div>
+      <div class="row patient-data">
+        <div class="col-12">
+          <h5>Оценка двигательного статуса Брунинкс-Озерецкого</h5>
+        </div>
 
-          <label class="col-4 text-right col-form-label">Ф.И.О. пациента:</label>
-          <div class="col-8">
-            <input id="patient-name" class="form-control" type="text" value="">
-          </div>
+        <div class="col-7">
+          <label class="label-120">Ф.И.О. пациента:</label>
+          <input id="patient-name" type="text" class="form-control name-field" placeholder="Катя Крылова" tabindex="">
+        </div>
+        <div class="col-5 text-right">
+          <label>Идентификационный номер:</label>
+          <input id="patient-id" type="text" class="form-control medium-field" placeholder="..." tabindex="">
+        </div>
 
-          <label class="col-4 text-right col-form-label">Ф.И.О. специалиста:</label>
-          <div class="col-8">
-            <input id="doctor-name" class="form-control" type="text" value="">
-          </div>
+        <div class="col-7">
+          <label class="label-120">Ф.И.О. специалиста:</label>
+          <input id="doctor-name" type="text" class="form-control name-field" placeholder="..." tabindex="">
+        </div>
+        <div class="col-5 text-right">
+          <label>Дата обследования:</label>
+          <input id="test-date" type="text" class="form-control medium-field" placeholder="..." tabindex="">
+        </div>
 
-          <label class="col-4 text-right col-form-label">Возраст:&nbsp;</label>
-          <div class="col-8">
-          <select class="custom-select" id="age-years">
+        <div class="col-7">
+          <label class="label-120">Пол:</label>
+          <select id="gender" class="select-control" tabindex="">
+            <option value="null" selected></option>
+            <option value="male">Мужской</option>
+            <option value="female">Женский</option>
+          </select>
+        </div>
+        <div class="col-5 text-right">
+          <label>Диагноз:</label>
+          <input id="diagnosisMKB" type="text" class="form-control medium-field copied-field update-object" placeholder="по МКБ" tabindex="">
+        </div>
+
+        <div class="col-12">
+          <label class="label-120">Возраст:</label>
+          <select class="select-control" id="age-years">
             <option value="4" selected>4 года</option>
             <option value="5">5 лет</option>
             <option value="6">6 лет</option>
@@ -55,7 +76,7 @@
             <option value="21">21 год</option>
           </select>
 
-          <select class="custom-select" id="age-months">
+          <select class="select-control" id="age-months">
             <option value="0" selected>0 месяцев</option>
             <option value="1">1 месяц</option>
             <option value="2">2 месяца</option>
@@ -69,62 +90,42 @@
             <option value="10">10 месяцев</option>
             <option value="11">11 месяцев</option>
           </select>
-          </div>
         </div>
 
-        <div class="form-group row">
-          <label class="col-4 text-right col-form-label">Пол:&nbsp;</label>
-          <div class="col-8">
-            <div class="form-check form-check-inline gender-row">
-              <label class="form-check-label"><input class="form-check-input" type="radio" name="gender-radio" id="gender-radio-female" value="female"> Девочка</label>
-            </div>
-            <div class="form-check form-check-inline gender-row">
-              <label class="form-check-label"><input class="form-check-input" type="radio" name="gender-radio" id="gender-radio-male" value="male"> Мальчик</label>
-            </div>
-          </div>
+        <div class="col-12">
+          <label class="label-120">Ведущая рука (письмо):</label>
+          <select id="primary-hand-writing" class="select-control">
+            <option value="right" selected>Правая</option>
+            <option value="left">Левая</option>
+          </select>
         </div>
-        <div class="form-group row">
-          <div class="col-4 text-right col-form-label">Ведущая рука (письмо):</div>
-          <div class="col-8">
-            <div class="form-check form-check-inline gender-row">
-              <label class="form-check-label"><input class="form-check-input" type="radio" name="hands" id="inlineRadio1" value="option1"> Левая</label>
-            </div>
-            <div class="form-check form-check-inline gender-row">
-              <label class="form-check-label"><input class="form-check-input" type="radio" name="hands" id="inlineRadio2" value="option2"> Правая</label>
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-4 col-form-label text-right">Ведущая рука (бросок):</div>
-          <div class="col-8">
-            <div class="form-check form-check-inline gender-row">
-              <label class="form-check-label"><input class="form-check-input" type="radio" name="shoulders" id="inlineRadio1" value="option1"> Левая</label>
-            </div>
-            <div class="form-check form-check-inline gender-row">
-              <label class="form-check-label"><input class="form-check-input" type="radio" name="shoulders" id="inlineRadio2" value="option2"> Правая</label>
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-4 col-form-label text-right">Ведущая ступня/нога:</div>
-          <div class="col-8">
-            <div class="form-check form-check-inline gender-row">
-              <label class="form-check-label"><input class="form-check-input" type="radio" name="feet" id="inlineRadio1" value="option1"> Левая</label>
-            </div>
-            <div class="form-check form-check-inline gender-row">
-              <label class="form-check-label"><input class="form-check-input" type="radio" name="feet" id="inlineRadio2" value="option2"> Правая</label>
-            </div>
-          </div>
-        </div>
-      </form>
 
+        <div class="col-12">
+          <label class="label-120">Ведущая рука (бросок):</label>
+          <select id="primary-hand-throwing" class="select-control">
+            <option value="right" selected>Правая</option>
+            <option value="left">Левая</option>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label class="label-120">Ведущая ступня/нога:</label>
+          <select id="primary-leg" class="select-control">
+            <option value="right" selected>Правая</option>
+            <option value="left">Левая</option>
+          </select>
+        </div>
+      </div><!-- /patient-data -->
+
+
+      <!-- Дебаг и таблица значений -->
       <div class="row">
         <div class="col">
-          <p class="debug-output">Debug:
+          <p class="debug-output"><b>Debug:
             <span class="age-converted">-</span> / <span class="selected-gender">-</span>,
             <span class="tables-primary">-</span>,
             <span class="tables-secondary">-</span>,
-            <span class="last-subtest">-</span>
+            <span class="last-subtest">-</span></b>
           </p>
         </div>
       </div>
@@ -250,7 +251,7 @@
               </tr>
               <tr class="subtest-group-4"> <!-- Subtest 8 -->
                 <th scope="row" class="unbold"><div class="clr">
-                  <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="subtest-8-select">
+                  <select class="select-control mb-2 mr-sm-2 mb-sm-0" id="subtest-8-select">
                     <option value="8" selected>8a. Отжимания с колен</option>
                     <option value="9">8b. Полные отжимания</option>
                   </select>
@@ -311,30 +312,36 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col form-group">
-          <textarea class="form-control" rows="2">Исследование мелкой и крупной моторики, координации, силы и ловкости у детей с диагнозом:</textarea>
-        </div>
-      </div>
-
-      <form>
-        <div class="form-group row">
-          <label class="col-3 text-right col-form-label">Дата обследования:</label>
-          <div class="col-9">
-            <input id="test-date-copy" class="form-control" type="text" value="">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-3 text-right col-form-label">Ф.И.О. пациента:</label>
-          <div class="col-9">
-            <input id="patient-name-copy" class="form-control" type="text" value="">
-          </div>
+      <div class="row patient-data">
+        <div class="col-12">
+          <textarea class="form-control" rows="3">Исследование мелкой и крупной моторики, координации, силы и ловкости у детей с диагнозом:</textarea>
         </div>
 
-        <div class="form-group row">
-          <label class="col-3 text-right col-form-label">Возраст:&nbsp;</label>
-          <div class="col-9">
-          <select class="custom-select" id="age-years-copy">
+        <div class="col-7">
+          <label class="label-120">Ф.И.О. пациента:</label>
+          <input id="patient-name-copy" type="text" class="form-control name-field" placeholder="Катя Крылова" tabindex="">
+        </div>
+        <div class="col-5 text-right">
+          <label>Идентификационный номер:</label>
+          <input id="patient-id-copy" type="text" class="form-control medium-field" placeholder="..." tabindex="">
+        </div>
+
+        <div class="col-7">
+          <label class="label-120">Пол:</label>
+          <select id="gender-copy" class="select-control" tabindex="">
+            <option value="null" selected></option>
+            <option value="male">Мужской</option>
+            <option value="female">Женский</option>
+          </select>
+        </div>
+        <div class="col-5 text-right">
+          <label>Дата обследования:</label>
+          <input id="test-date-copy" type="text" class="form-control medium-field" placeholder="..." tabindex="">
+        </div>
+
+        <div class="col-12">
+          <label class="label-120">Возраст:</label>
+          <select class="select-control" id="age-years-copy">
             <option value="4" selected>4 года</option>
             <option value="5">5 лет</option>
             <option value="6">6 лет</option>
@@ -354,15 +361,14 @@
             <option value="20">20 лет</option>
             <option value="21">21 год</option>
           </select>
-          </div>
         </div>
-        <div class="form-group row">
-          <label class="col-3 text-right col-form-label">Диагноз:</label>
-          <div class="col-9">
-            <input class="form-control" type="text" value="">
-          </div>
+
+        <div class="col-12">
+          <label class="label-120">Диагноз:</label>
+          <input id="diagnosisMKB-copy" type="text" class="form-control medium-field copied-field update-object" placeholder="по МКБ" tabindex="">
         </div>
-      </form>
+
+      </div><!-- /patient-data -->
 
 
       <div class="row">

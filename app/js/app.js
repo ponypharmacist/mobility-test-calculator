@@ -452,8 +452,8 @@ $(document).ready(function(){
   });
 
   // Реагируем на смену пола
-  $('.form-check-input').on('change', function() {
-    genderSelected = $('input[name=gender-radio]:checked').val();
+  $('#gender').on('change', function() {
+    genderSelected = $('#gender').val();
     $('.selected-gender').html(genderSelected);
     ageConverted && genderSelected && choosePrimaryTable();
     ageConverted && genderSelected && chooseSecondaryTable();
@@ -483,6 +483,18 @@ $(document).ready(function(){
 
   $('#doctor-name').on('change', function() {
    $('#doctor-name-copy').val(this.value);
+  });
+
+  $('#diagnosisMKB').on('change', function() {
+   $('#diagnosisMKB-copy').val(this.value);
+  });
+
+  $('#gender').on('change', function() {
+   $('#gender-copy').val(this.value);
+  });
+
+  $('#patient-id').on('change', function() {
+   $('#patient-id-copy').val(this.value);
   });
 
 });
