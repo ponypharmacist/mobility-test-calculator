@@ -53,7 +53,7 @@
           <input id="diagnosisMKB" type="text" class="form-control medium-field copied-field update-object" placeholder="по МКБ" tabindex="">
         </div>
 
-        <div class="col-12">
+        <div class="col-9">
           <label class="label-120">Возраст:</label>
           <select class="select-control" id="age-years">
             <option value="4" selected>4 года</option>
@@ -89,6 +89,14 @@
             <option value="9">9 месяцев</option>
             <option value="10">10 месяцев</option>
             <option value="11">11 месяцев</option>
+          </select>
+        </div>
+
+        <div class="col-3 text-right">
+          <label>Категория:</label>
+          <select id="category" type="text" class="select-control medium-field update-object">
+          <option value="category-oms" selected="">ОМС</option>
+          <option value="category-a">А</option>
           </select>
         </div>
 
@@ -520,19 +528,27 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-12">
           <p>&nbsp;</p>
           <p>
             <b>Заключение:</b>
             <textarea class="form-control" rows="4"></textarea>
           </p>
-          <div class="row">
-            <div class="col-12 paragraph"><b>Исследователь:</b></div>
-          </div>
-          <div class="row">
-            <div class="col-3 pad-left-30"><input id="doctor-name-copy" class="form-control" type="text" value=""></div>
-            <div class="col-9">/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/</div>
-          </div>
+        </div>
+        <div class="col-7" style="position:relative;">
+            <label>Исследователь:</label>
+            <select id="doctorB" class="select-control doctor-select update-object" tabindex="67">
+              <option value="baerbach">Баербах А.В.</option>
+              <option value="juk">Жук Д.В.</option>
+              <option value="nikulin">Никулин В.А.</option>
+              <option value="mineev">Минеев И.О.</option>
+              <option value="krotko">Кротько К.Г.</option>
+              <option value="olejnikova">Олейникова М.И.</option>
+              <option value="taldykina">Талдыкина Н.В.</option>
+              <option value="parshikov">Паршиков А.С.</option>
+            </select>
+            <span class="doctor-signature">(подпись)</span>
+            <div id="signature-doctorB"></div>
         </div>
       </div>
     </div>

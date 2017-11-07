@@ -497,4 +497,11 @@ $(document).ready(function(){
    $('#patient-id-copy').val(this.value);
   });
 
+  // Ставим подписи специалистов
+  $('.doctor-select').on('change', function() {
+    let selectedDoctor = $(this).val();
+    let targetSignature = $(this).attr('id');
+    $("#signature-" + targetSignature).attr('class',selectedDoctor);
+  });
+
 });
