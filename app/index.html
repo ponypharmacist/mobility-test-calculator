@@ -50,7 +50,7 @@
         </div>
         <div class="col-5 text-right">
           <label>Диагноз:</label>
-          <input id="diagnosisMKB" type="text" class="form-control medium-field copied-field update-object" placeholder="по МКБ" tabindex="">
+          <input id="diagnosisMKB" type="text" class="form-control medium-field copied-field" placeholder="по МКБ" tabindex="">
         </div>
 
         <div class="col-9">
@@ -94,9 +94,10 @@
 
         <div class="col-3 text-right">
           <label>Категория:</label>
-          <select id="category" type="text" class="select-control medium-field update-object">
-          <option value="category-oms" selected="">ОМС</option>
-          <option value="category-a">А</option>
+          <select id="category" type="text" class="select-control medium-field">
+            <option value="" selected></option>
+            <option value="ОМС">ОМС</option>
+            <option value="А">А</option>
           </select>
         </div>
 
@@ -347,7 +348,7 @@
           <input id="test-date-copy" type="text" class="form-control medium-field" placeholder="..." tabindex="">
         </div>
 
-        <div class="col-12">
+        <div class="col-9">
           <label class="label-120">Возраст:</label>
           <select class="select-control" id="age-years-copy">
             <option value="4" selected>4 года</option>
@@ -371,9 +372,18 @@
           </select>
         </div>
 
+        <div class="col-3 text-right">
+          <label>Категория:</label>
+          <select id="category-copy" type="text" class="select-control medium-field">
+            <option value="" selected></option>
+            <option value="ОМС">ОМС</option>
+            <option value="А">А</option>
+          </select>
+        </div>
+
         <div class="col-12">
           <label class="label-120">Диагноз:</label>
-          <input id="diagnosisMKB-copy" type="text" class="form-control medium-field copied-field update-object" placeholder="по МКБ" tabindex="">
+          <input id="diagnosisMKB-copy" type="text" class="form-control medium-field copied-field" placeholder="по МКБ" tabindex="">
         </div>
 
       </div><!-- /patient-data -->
@@ -537,7 +547,8 @@
         </div>
         <div class="col-7" style="position:relative;">
             <label>Исследователь:</label>
-            <select id="doctorB" class="select-control doctor-select update-object" tabindex="67">
+            <select id="doctorB" class="select-control doctor-select" tabindex="">
+              <option value="" selected></option>
               <option value="baerbach">Баербах А.В.</option>
               <option value="juk">Жук Д.В.</option>
               <option value="nikulin">Никулин В.А.</option>

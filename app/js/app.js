@@ -496,6 +496,9 @@ $(document).ready(function(){
   $('#patient-id').on('change', function() {
    $('#patient-id-copy').val(this.value);
   });
+  $('#category').on('change', function() {
+   $('#category-copy').val(this.value);
+  });
 
   // Ставим подписи специалистов
   $('.doctor-select').on('change', function() {
