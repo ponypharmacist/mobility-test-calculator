@@ -1,11 +1,15 @@
 // Made by Dmitry Glinskiy, contact me at glinskiy.net
 // Primitive range and summ functions
+function getSumm(a,b) {
+  return a + b;
+};
+
 function range(x, min, max) {
   return x >= min && x <= max;
 };
 
-function getSumm(a,b) {
-  return a + b;
+function rangeShort(x, min, max) {
+  return x >= min && x < max;
 };
 
 
@@ -19,70 +23,25 @@ var tableSecondaryName = 0;
 
 
 // Chooses B1-2 table based on age and gender
+var primaryTableAgeRange = [
+  0,48,52,56,60,64,68,72,76,80,84,88,92,96,102,108,114,120,126,
+  132,138,144,150,156,162,168,180,192,204,228,264
+];
+var primaryTablePrefix = [
+  'AgeUnrealisticallyYoung',
+  '_40to43', '_44to47', '_48to411', '_50to53', '_54to57', '_58to511', '_60to63', '_64to67', '_68to611',
+  '_70to73', '_74to77', '_78to711', '_80to85', '_86to811', '_90to95', '_96to911', '_100to105', '_106to1011',
+  '_110to115', '_116to1111', '_120to125', '_126to1211', '_130to135', '_136to1311', '_140to1411',
+  '_150to1511', '_160to1611', '_170to1811', '_190to2111'
+];
 function choosePrimaryTable () {
-  if (range(ageConverted, 0, 47)) {
-    tablePrimaryName = 'AgeUnrealisticallyYoung';
-  } else if (range(ageConverted, 48, 51)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_40to43';
-  } else if (range(ageConverted, 52, 55)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_44to47';
-  } else if (range(ageConverted, 56, 59)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_48to411';
-  } else if (range(ageConverted, 60, 63)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_50to53';
-  } else if (range(ageConverted, 64, 67)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_54to57';
-  } else if (range(ageConverted, 68, 71)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_58to511';
-  } else if (range(ageConverted, 72, 75)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_60to63';
-  } else if (range(ageConverted, 76, 79)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_64to67';
-  } else if (range(ageConverted, 80, 83)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_68to611';
-  } else if (range(ageConverted, 84, 87)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_70to73';
-  } else if (range(ageConverted, 88, 91)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_74to77';
-  } else if (range(ageConverted, 92, 95)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_78to711';
-  } else if (range(ageConverted, 96, 101)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_80to85';
-  } else if (range(ageConverted, 102, 107)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_86to811';
-  } else if (range(ageConverted, 108, 113)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_90to95';
-  } else if (range(ageConverted, 114, 119)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_96to911';
-  } else if (range(ageConverted, 120, 125)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_100to105';
-  } else if (range(ageConverted, 126, 131)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_106to1011';
-  } else if (range(ageConverted, 132, 137)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_110to115';
-  } else if (range(ageConverted, 138, 143)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_116to1111';
-  } else if (range(ageConverted, 144, 149)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_120to125';
-  } else if (range(ageConverted, 150, 155)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_126to1211';
-  } else if (range(ageConverted, 156, 161)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_130to135';
-  } else if (range(ageConverted, 162, 167)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_136to1311';
-  } else if (range(ageConverted, 168, 179)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_140to1411';
-  } else if (range(ageConverted, 180, 191)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_150to1511';
-  } else if (range(ageConverted, 192, 203)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_160to1611';
-  } else if (range(ageConverted, 204, 227)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_170to1811';
-  } else if (range(ageConverted, 228, 264)) {
-    tablePrimaryName = 'primary_' + genderSelected + '_190to2111';
-  } else {
-    tablePrimaryName = 'AgeUnrealisticallyOld';
-  }
+  let index;
+  for (index = 0; index < primaryTableAgeRange.length - 1; index++) {
+    if (rangeShort(ageConverted, primaryTableAgeRange[index], primaryTableAgeRange[index + 1])) {
+      tablePrimaryName = 'primary_' + genderSelected + primaryTablePrefix[index];
+    } else {
+    };
+  };
   $('.tables-primary').html(tablePrimaryName);
 };
 
